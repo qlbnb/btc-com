@@ -1,37 +1,47 @@
 ## btc-com
 A python 3 api wrapper for btc.com block explorer
 
-docs: https://github.com/pasquantonio/btc.com-api-wrapper/blob/master/docs.md
+docs: https://github.com/qlbnb/btc-com/blob/master/docs.md
 
 api docs: https://btc.com/api-doc
 
 block explorer: https://btc.com/block
 
+
 ## Install
 ```
-pip install btc-com
+pip install bp-btc-com
 ```
 must be python3 so if not in a python3 virtualenv use
 ```
-pip3 install btc-com
+pip3 install bp-btc-com
 ```
 
 ## Usage
 ```python
-from btc_com import explorer
+import datetime
 
-# get transaction by id
-tx_id = '56a5b477182cddb6edb460b39135a3dc785eaf7ea88a572052a761d6983e26a2'
-tx = explorer.get_transaction(tx_id)
+from bp_btc_com.explorer import Explorer
+from time import sleep
 
-# get address data
-address = '3ADPkym6mQ2HyP7uASh5g3VYauhCWZpczF'
-addr_info = explorer.get_address(address)
+sleep_time = .5  # don't overstep rate limits
+# get latest block
+print(Explorer("btc").get_block())
+sleep(sleep_time)
+
+print(Explorer("bch").get_block())
+sleep(sleep_time)
+
+print(Explorer("bsv").get_block())
 ```
 
 ## Examples
-examples.py shows multiple examples of calling functions
-https://github.com/pasquantonio/btc.com-api-wrapper/blob/master/examples.py
+https://github.com/qlbnb/btc-com/blob/master/examples.py
 
-## Donate
-BTC: `3ADPkym6mQ2HyP7uASh5g3VYauhCWZpczF`
+## Common Issues
+API changes may break the sdk. Please refer to the official btc.com api documentation and update accordingly.
+```
+'https://chain.api.btc.com/v3/'
+'https://bch-chain.api.btc.com/v3/'
+'https://bsv-chain.api.btc.com/v3/'
+```
