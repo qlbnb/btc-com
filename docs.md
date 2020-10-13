@@ -330,3 +330,10 @@ Returns an instance of `BitmainIndex` class
 ```python
 index = explorer.get_digital_currency_index()
 ```
+
+## update pip index
+```
+pip install twine # and configure key
+python setup.py sdist bdist_wheel
+twine upload  dist/* --verbose
+```
