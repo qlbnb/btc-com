@@ -1,5 +1,6 @@
-## btc-com
-A python 3 api wrapper for btc.com block explorer
+## bp-btc-com
+A python 3 api wrapper for btc.com block explorer.
+Forked from [psqnt/btc-com](https://github.com/psqnt/btc-com)
 
 docs: https://github.com/qlbnb/btc-com/blob/master/docs.md
 
