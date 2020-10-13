@@ -4,14 +4,14 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="btc-com",
-    version="0.0.1",
-    author="Joe Pasquantonio",
-    author_email="joepasquantonio@gmail.com",
+    name="bp-btc-com",
+    version="0.0.2",
+    author="Joe Pasquantonio/Qiao Liang",
+    author_email="liang.qiao@binance.com",
     description="An api wrapper for btc.com block explorer api",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/pasquantonio/",
+    url="https://github.com/qlbnb/btc-com",
     packages=setuptools.find_packages(),
     python_requires='>=3',
     install_requires=['requests'],

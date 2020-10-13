@@ -3,18 +3,30 @@ A python api-wrapper for https://btc.com blockchain explorer
 # Usage
 ## Install
 ```
-pip install btc-com
+pip install bp-btc-com
+```
+
+## Chains supported
+BTC, BCH, BSV
+```
+BTC_URL = 'https://chain.api.btc.com/v3/'
+BCH_URL = 'https://bch-chain.api.btc.com/v3/'
+BSV_URL = 'https://bsv-chain.api.btc.com/v3/'
 ```
 
 ## Import 
 ```python
-from btc_com import explorer
+from btc_com import Explorer
+
+explorer_btc = Explorer("btc")
+explorer_bch = Explorer("bch")
+explorer_bsv = Explorer("bsv")
 ```
 
 ## API Rate Limits
 There is nothing formal in the documentation but this works
 ```python
-sleep_time = .25  # don't overstep rate limits
+sleep_time = .5  # don't overstep rate limits
 ```
 
 # Blocks
@@ -44,7 +56,6 @@ Python Class fields available in the `Block` class
 + tx_count: int
 + reward_block: int
 + reward_fees: int
-+ created_at: int
 + confirmations: int
 + extras: dict
     - relayed_by: str
@@ -69,7 +80,6 @@ difficulty = block.difficulty
 tx_count = block.tx_count
 reward_block = block.reward_block
 reward_fees = block.reward_fees
-created_at = block.created_at
 confirmations = block.confirmations
 extras = block.extras
 relayed_by = block.extras['relayed_by']
@@ -128,7 +138,6 @@ Python Class fields available in the `Transaction` class
 ```
 + block_height: int
 + block_time: int
-+ created_at: int
 + fee: int
 + hash: str
 + id: str (id == hash)
@@ -150,7 +159,6 @@ tx = get_transaction(tx_hash)
 
 block_height = tx.block_height
 block_time = tx.block_time
-created_at = tx.created_at
 fee = tx.fee
 hash = tx.hash
 id = tx.id
@@ -244,8 +252,6 @@ Python Class fields available in the `Address` class
 + unconfirmed_received: int
 + unconfirmed_sent: int
 + unspent_tx_count: int
-+ first_tx
-+ last_tx
 ```
 Access fields like any python class
 ```python
@@ -261,8 +267,6 @@ unconfirmed_tx_count = addr.unconfirmed_tx_count
 unconfirmed_received = addr.unconfirmed_received
 unconfirmed_sent = addr.unconfirmed_sent
 unspent_tx_count = addr.unconfirmed_tx_count
-first_tx = addr.first_tx
-last_tx = addr.last_tx
 ```
 
 ## get an address
