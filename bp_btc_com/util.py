@@ -30,7 +30,7 @@ def call_api(resource, payload=None, chain="btc"):
     else:
         response = requests.get(url)
     if response.status_code == 403:  # try waiting
-        logging.warn("retrying when 403")
+        logging.warning("retrying when 403")
         sleep(sleep_time)
         if payload:
             response = requests.get(url, params=payload)
@@ -46,7 +46,7 @@ def handle_response(response):
     :return: response ready for consumption from wrapper
     """
     if response.status_code >= 400:
-        logging.warn(response)
+        logging.warning(response)
         return response.status_code
 
     data = response.json()
